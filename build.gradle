@@ -1,19 +1,26 @@
+//Springboot Initializerを使うと、勝手に適切な設定でGradleファイルを作ってくれる。
+
 plugins {
 	id 'org.springframework.boot' version '2.3.0.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	//applicationプラグインを使うとrunコマンドを実行できるようになる。
 	id 'application'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
+//Javaのバージョン。ここでは一番新しいLTSの11を指定。
 sourceCompatibility = '11'
 
+//依存ライブラリを取得する先のリポジトリを指定。インターネット上のmavenにアクセスするのがNGな場合、Azure DevOpsのArtifactを使ってください。
 repositories {
 	mavenCentral()
 }
 
+//jarファイルを実行した時に呼ばれるメインクラスの名前。
 mainClassName = 'com.example.cmddemo.CmddemoApplication'
 
+//依存するライブラリ。Springboot Initializerで指定すると、勝手に記載されます。後から使いたくなったライブラリがあった場合は、追記が必要。
 dependencies {
 	// implementation 'org.flywaydb:flyway-core'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2'
