@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'application'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+mainClassName = 'com.example.cmddemo.CmddemoApplication'
+
+dependencies {
+	// implementation 'org.flywaydb:flyway-core'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.1.2'
+    compile 'org.springframework:spring-aop'
+    compile 'org.aspectj:aspectjweaver'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		// exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
